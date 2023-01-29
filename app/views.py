@@ -5,7 +5,7 @@ import io
 
 from aiohttp import web
 import aiohttp_jinja2
-from jinja2 import Markup
+# from jinja2 import Markup
 from telethon.tl import types
 from telethon.tl.custom import Message
 from telethon.tl.types import User, Chat, Channel
@@ -262,7 +262,8 @@ class Views:
                 caption = message.raw_text
             else:
                 caption = ''
-            caption_html = Markup.escape(caption).__str__().replace('\n', '<br>')
+            # caption_html = Markup.escape(caption).__str__().replace('\n', '<br>')
+            caption_html = caption.__str__().replace('\n', '<br>')
             return_val = {
                 'found': True,
                 'name': file_name,
@@ -280,7 +281,8 @@ class Views:
             }
         elif message.message:
             text = message.raw_text
-            text_html = Markup.escape(text).__str__().replace('\n', '<br>')
+            # text_html = Markup.escape(text).__str__().replace('\n', '<br>')
+            text_html = text.__str__().replace('\n', '<br>')
             return_val = {
                 'found': True,
                 'media': False,

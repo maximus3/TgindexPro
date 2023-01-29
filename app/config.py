@@ -2,6 +2,9 @@ import traceback
 import json
 import sys
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 try:
@@ -32,7 +35,7 @@ try:
       "index_group": True,
       "index_channel": True,
       "exclude_chats": [],
-      "include_chats": [int(os.environ["INDEXING_CHAT"])],#my index chat
+      "include_chats": [int(chat_id) for chat_id in os.environ["INDEXING_CHAT"].split(',')],#my index chat
       "otg": {
           "enable": True,
           "include_private": True,

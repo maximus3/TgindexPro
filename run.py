@@ -1,4 +1,8 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 def runSetup():
   def alert(missing="API_ID , API_HASH"):
